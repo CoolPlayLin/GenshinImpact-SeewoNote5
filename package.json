@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "build:code": "tsup-node",
-    "build:dist": "",
+    "build:dist": "pkg .",
     "build": "run-s build:code build:dist",
     "format": "prettier --write src",
     "debug": "esno src/main.ts"
@@ -14,6 +14,16 @@
   "files": [
     "public"
   ],
+  "pkg": {
+    "scripts": "dist/main.js",
+    "assets": "public/**",
+    "targets": [
+      "node16-win-x86",
+      "node16-win-x64",
+      "node16-win-arm64"
+    ],
+    "outputPath": "dist/executable"
+  },
   "keywords": [],
   "author": "CoolPlayLin<CoolPlayLin@foxmail.com>",
   "license": "MIT",
@@ -24,6 +34,7 @@
     "esno": "^4.0.0",
     "nexe": "^4.0.0-rc.3",
     "npm-run-all": "^4.1.5",
+    "pkg": "^5.8.1",
     "prettier": "^3.1.1",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"

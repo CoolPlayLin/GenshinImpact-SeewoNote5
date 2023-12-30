@@ -5,6 +5,6 @@ export default defineConfig({
   format: ["esm", "cjs"],
   target: "es2017",
   splitting: true,
-  sourcemap: true,
   outDir: "dist",
+  clean: true
 });
