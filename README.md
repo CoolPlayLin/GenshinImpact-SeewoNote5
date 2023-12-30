@@ -1,9 +1,9 @@
 # GenshinImpact Startup for SeewoNote5
 
-A CLI which can replace the startup of EasiNote 5 with Genshin Impact & written
-in TypeScript
+A CLI which can replace the startup of EasiNote 5 with Genshin Impact & were
+written in TypeScript
 
-_NOTE_ All of these resources were collected from internet, JUST FOR Studying
+**NOTE** All of these resources were collected from internet, JUST FOR Studying
 and fun.
 
 ## License
