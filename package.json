@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "build:code": "tsup-node",
-    "build:dist": "pkg .",
+    "build:dist": "pkg . --openssl-no-asm",
     "build": "run-s build:code build:dist",
     "format": "prettier --write src",
     "debug": "esno src/main.ts"
