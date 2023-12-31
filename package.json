@@ -1,28 +1,26 @@
 {
-  "name": "genshinImpact-Seewonote5",
+  "name": "@coolplaylin/genshinimpact-seewonote5",
   "version": "0.0.0",
-  "description": "",
+  "description": "Make your EasiNote5 especial 让你的希沃白板 5 与众不同",
   "main": "dist/main.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build:code": "tsup-node",
-    "build:dist": "pkg . --openssl-no-asm",
-    "build": "run-s build:code build:dist",
+    "build": "run-s build:code",
     "format": "prettier --write src",
-    "debug": "esno src/main.ts"
+    "debug": "esno src/main.ts",
+    "prepublishOnly": "run-s format build",
+    "release": "bumpp"
   },
-  "bin": "dist/main.js",
+  "bin": {
+    "gise": "bin/gise.js"
+  },
   "files": [
-    "public"
+    "public",
+    "dist"
   ],
-  "pkg": {
-    "scripts": "dist/main.js",
-    "assets": "public/**",
-    "targets": [
-      "node16-win-x86",
-      "node16-win-x64"
-    ],
-    "outputPath": "dist/executable"
-  },
   "keywords": [],
   "author": "CoolPlayLin<CoolPlayLin@foxmail.com>",
   "license": "MIT",
@@ -30,6 +28,7 @@
     "@electron/packager": "^18.1.3",
     "@types/node": "^20.10.6",
     "@types/prompts": "^2.4.9",
+    "bumpp": "^9.2.1",
     "esno": "^4.0.0",
     "nexe": "^4.0.0-rc.3",
     "npm-run-all": "^4.1.5",
