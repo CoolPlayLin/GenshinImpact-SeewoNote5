@@ -6,6 +6,19 @@ written in TypeScript
 **NOTE** All of these resources were collected from internet, JUST FOR Studying
 and fun.
 
+## Usage
+
+- Installation
+
+```bash
+npm install @coolplaylin/genshinimpact-seewonote5 -g
+```
+
+- Run
+```bash
+gise
+```
+
 ## License
 
 ALL OF FILE IN THIS PROECT WERE PUBLISHED UNDER MIT LICENSE
