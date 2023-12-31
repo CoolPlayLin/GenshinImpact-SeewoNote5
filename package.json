@@ -3,6 +3,13 @@
   "version": "1.0.4",
   "description": "Make your EasiNote5 especial 让你的希沃白板 5 与众不同",
   "main": "dist/main.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
