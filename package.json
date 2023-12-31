@@ -1,6 +1,6 @@
 {
   "name": "@coolplaylin/genshinimpact-seewonote5",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Make your EasiNote5 especial 让你的希沃白板 5 与众不同",
   "main": "./dist/main.js",
   "module": "./dist/main.mjs",
