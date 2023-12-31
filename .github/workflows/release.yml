@@ -1,0 +1,27 @@
+on:
+  release:
+    types: [published]
+name: Release Package
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "21"
+      - name: Install dependencies
+        run: yarn
+      - name: Publish to Npm.JS
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          registry: https://registry.npmjs.org/
+      - name: Publish to GitHub Packages
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          registry: https://npm.pkg.github.com

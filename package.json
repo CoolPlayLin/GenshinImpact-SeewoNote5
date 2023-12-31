@@ -11,8 +11,8 @@
       "require": "./dist/main.cjs"
     }
   },
+  "repository": "https://github.com/CoolPlayLin/GenshinImpact-SeewoNote5",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
   "scripts": {
