@@ -17,7 +17,7 @@
     "release": "bumpp"
   },
   "bin": {
-    "gise": "dist/main.js"
+    "gise": "dist/main.cjs"
   },
   "files": [
     "public",
