@@ -1,2 +1,2 @@
 'use strict'
-import '../dist/main'
+import '../dist/main.cjs'
