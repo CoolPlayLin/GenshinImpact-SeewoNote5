@@ -41,7 +41,7 @@ async function replaceMan(
       );
     }
     writeFileSync(photoFile, photoContent);
-    console.log(`成功替换 ${photoFile}`)
+    console.log(`成功替换 ${photoFile}`);
     return true;
   }
 }
