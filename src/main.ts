@@ -57,16 +57,16 @@ async function main() {
     join(__dirname, "..", "public", "Photo.jpg"),
   );
   let mainFolder: string;
-  let ROOT_FOLDER: string;
+  let ROOT_FOLDER: string[];
 
   if (ROOT_FOLDERS.length === 0) {
     throw Error("无法找到希沃白板 5 的根文件夹");
   } else if (ROOT_FOLDERS.length === 1) {
-    ROOT_FOLDER = ROOT_FOLDERS[0];
+    ROOT_FOLDER = ROOT_FOLDERS;
   } else {
     ROOT_FOLDER = (
       await prompts({
-        type: "select",
+        type: "multiselect",
         name: "rootFolder",
         message: "找到多个根文件夹，请选择要希沃白板 5 的根文件夹",
         choices: ROOT_FOLDERS.map((folder) => {
@@ -76,50 +76,61 @@ async function main() {
           };
         }),
       })
-    ).rootFolder as string;
+    ).rootFolder;
   }
-  const files = readdirSync(ROOT_FOLDER);
-  const mainFolders = files.filter((file) => {
-    return file.includes("EasiNote5");
-  });
-  if (mainFolders.length === 0) {
-    throw Error("无法找到希沃白板 5 的主文件夹");
-  } else {
-    if (mainFolders.length === 1) {
-      mainFolder = join(ROOT_FOLDER, mainFolders[0]);
-    } else {
-      mainFolder = join(
-        ROOT_FOLDER,
-        (
-          await prompts({
-            type: "select",
-            name: "mainFolder",
-            message: "找到多个文件夹，请选择希沃白板 5 的主文件夹",
-            choices: mainFolders.map((mainFolder) => {
-              return {
-                title: mainFolder,
-                value: mainFolder,
-              };
-            }),
-          })
-        ).mainFolder as string,
-      );
+  const loop = (
+    await prompts({
+      type: "confirm",
+      name: "loop",
+      message: "是否循环替换",
+    })
+  ).loop as boolean;
+  do {
+    for (const folder of ROOT_FOLDER) {
+      const files = readdirSync(folder);
+      const mainFolders = files.filter((file) => {
+        return file.includes("EasiNote5");
+      });
+      if (mainFolders.length === 0) {
+        throw Error("无法找到希沃白板 5 的主文件夹");
+      } else {
+        if (mainFolders.length === 1) {
+          mainFolder = join(folder, mainFolders[0]);
+        } else {
+          mainFolder = join(
+            folder,
+            (
+              await prompts({
+                type: "select",
+                name: "mainFolder",
+                message: "找到多个文件夹，请选择希沃白板 5 的主文件夹",
+                choices: mainFolders.map((mainFolder) => {
+                  return {
+                    title: mainFolder,
+                    value: mainFolder,
+                  };
+                }),
+              })
+            ).mainFolder as string,
+          );
+        }
+      }
+      const photoFolderMain = join(mainFolder, "Main", "Resources", "Startup");
+      const photoFolderUser = join(mainFolder, "Resources", "Banner");
+      let photoFolder: string;
+      if (existsSync(photoFolderMain)) {
+        photoFolder = photoFolderMain;
+      } else if (existsSync(photoFolderUser)) {
+        photoFolder = photoFolderUser;
+      } else {
+        throw Error(`无法找到希沃白板 5 的图片文件夹`);
+      }
+      const result = await replaceMan(photoFolder, photoContent);
+      if (result) {
+        console.log("原神，启动！");
+      }
     }
-  }
-  const photoFolderMain = join(mainFolder, "Main", "Resources", "Startup");
-  const photoFolderUser = join(mainFolder, "Resources", "Banner");
-  let photoFolder: string;
-  if (existsSync(photoFolderMain)) {
-    photoFolder = photoFolderMain;
-  } else if (existsSync(photoFolderUser)) {
-    photoFolder = photoFolderUser;
-  } else {
-    throw Error(`无法找到希沃白板 5 的图片文件夹`);
-  }
-  const result = await replaceMan(photoFolder, photoContent);
-  if (result) {
-    console.log("原神，启动！");
-  }
+  } while (loop);
 }
 
 main();
