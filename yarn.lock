@@ -573,12 +573,12 @@ builtin-modules@^3.3.0:
   integrity sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==
 
 bumpp@^9.2.1:
-  version "9.4.0"
-  resolved "https://registry.yarnpkg.com/bumpp/-/bumpp-9.4.0.tgz#3bded4e677a3a3cd1b1f85af1b9e9c1a8a7c2e08"
-  integrity sha512-T+N+B5mSSvsTt7kgxGXCKQd957IxmEZwMn2nWirspGUY08u/cBNrpQDMXk43fzLegZtKtXS1v9S06vq2zf6lXQ==
+  version "9.4.1"
+  resolved "https://registry.yarnpkg.com/bumpp/-/bumpp-9.4.1.tgz#12f725b3dbeaef5414bfcc59aeaaa3bc4fc10405"
+  integrity sha512-kzhp/LpNX0HkUpEyLd7sU2LTN/mbAVgcxJ1Zi2cAJTE/tul6rypSKGpH8UywDpzKWItL8LVdKsIFnwmylw0+7g==
   dependencies:
     "@jsdevtools/ez-spawn" "^3.0.4"
-    c12 "^1.9.0"
+    c12 "^1.10.0"
     cac "^6.7.14"
     escalade "^3.1.2"
     fast-glob "^3.3.2"
@@ -586,7 +586,7 @@ bumpp@^9.2.1:
     prompts "^2.4.2"
     semver "^7.6.0"
 
-c12@^1.9.0:
+c12@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/c12/-/c12-1.10.0.tgz#e1936baa26fd03a9427875554aa6aeb86077b7fb"
   integrity sha512-0SsG7UDhoRWcuSvKWHaXmu5uNjDCDN3nkQLRL4Q42IlFy+ze58FcCoI3uPwINXinkz7ZinbhEgyzYFw9u9ZV8g==
