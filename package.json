@@ -41,7 +41,7 @@
   "author": "CoolPlayLin<CoolPlayLin@foxmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^22.5.5",
+    "@types/node": "^24.2.1",
     "@types/prompts": "^2.4.9",
     "bumpp": "^10.1.0",
     "esno": "^4.0.0",
